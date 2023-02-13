@@ -1,0 +1,5 @@
+- Add prettier and eslint
+- get nev fvars figured out
+- test login
+- finish authed apollo client stuff. move token to authLink
+- test recoil, mixpanel, segment, sentry
