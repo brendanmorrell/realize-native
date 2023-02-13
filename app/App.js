@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button} from 'react-native';
-import { Auth0Provider } from 'react-native-auth0';
+import {Button, StyleSheet} from 'react-native';
+import {Auth0Provider} from 'react-native-auth0';
 import config from './auth0-configuration';
 import {LoginPage} from './features/auth/pages/LoginPage';
 import {HomePage} from './features/home/pages/HomePage';
@@ -13,12 +13,19 @@ const App = () => {
   const otherPage = pages[isHome ? 1 : 0];
   return (
     <Auth0Provider domain={config.domain} clientId={config.clientId}>
-      <Button
-        title={`Switch to ${otherPage}`}
-        onPress={() => setPage(otherPage)}
-      />
-      {isHome ? <HomePage /> : <LoginPage />}
-    </Atuh>
+      <>
+        <Button
+          title=""
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <Button
+          color="purple"
+          title={`Switch to ${otherPage}`}
+          onPress={() => setPage(otherPage)}
+        />
+        {isHome ? <HomePage /> : <LoginPage />}
+      </>
+    </Auth0Provider>
   );
 };
 
