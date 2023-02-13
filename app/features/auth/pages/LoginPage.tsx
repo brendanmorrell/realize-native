@@ -1,6 +1,6 @@
 import React from 'react';
 import {Alert, Button, StyleSheet, Text, View} from 'react-native';
-import {useAuth0, Auth0Provider} from 'react-native-auth0';
+import {useAuth0} from 'react-native-auth0';
 
 export const LoginPage = () => {
   const {authorize, clearSession, user, getCredentials, error} = useAuth0();
@@ -14,6 +14,7 @@ export const LoginPage = () => {
   const loggedIn = user !== undefined && user !== null;
 
   const onLogout = async () => {
+    // @ts-ignore
     await clearSession({federated: true}, {localStorageOnly: false});
   };
 

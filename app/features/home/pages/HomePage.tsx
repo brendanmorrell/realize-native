@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import styled, {css} from '@emotion/native';
 import {gql, useQuery} from '@apollo/client';
+import {TypeItem} from '../atoms/TypeItem';
 
 const StyledText = styled.Text`
   background: purple;
@@ -18,20 +19,25 @@ const FEATURED_PACKAGES = gql`
   }
 `;
 
+type FeaturedPackagesApi = {stripe_price: {product: {name: string}}[]};
+
 const useFeaturedPackages = () => {
-  const {data} = useQuery(FEATURED_PACKAGES);
-  return data?.stripe_price
-    .map(x => x.product?.name)
-    .filter(Boolean)
-    .slice(0, 10);
+  const {data} = useQuery<FeaturedPackagesApi>(FEATURED_PACKAGES);
+
+  return (
+    data?.stripe_price
+      .map(x => x.product?.name)
+      .filter(Boolean)
+      .slice(0, 10) ?? []
+  );
 };
 
 export const HomePage = () => {
   const featuredPackages = useFeaturedPackages();
   return (
     <View style={styles.container}>
-      <Text>right above</Text>
-      {featuredPackages.map(x => (
+      <TypeItem type={'script'} />
+      {featuredPackages?.map(x => (
         <Text key={x}>{x}</Text>
       ))}
       <StyledText style={cssProp}>this is the homepage boyo</StyledText>
