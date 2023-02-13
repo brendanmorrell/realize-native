@@ -1,5 +1,5 @@
 {
-  "name": "Auth0Samples",
+  "name": "realize-native",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,10 +9,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/native": "^11.10.0",
+    "@emotion/react": "^11.10.5",
     "react": "18.2.0",
     "react-native": "0.69.2",
-    "react-native-auth0": "^2.16.0",
-    "react-native-config": "^1.5.0"
+    "react-native-auth0": "^2.16.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -65,3 +65,6 @@ buck-out/
 
 # Auth0 configuration file
 app/auth0-configuration.js
+
+# env
+*.env*

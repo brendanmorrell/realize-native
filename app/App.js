@@ -29,4 +29,8 @@ const App = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  button: {backgroundColor: 'blue', color: 'white'},
+});
+
 export default App;
