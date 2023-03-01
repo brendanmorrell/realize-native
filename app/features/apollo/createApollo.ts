@@ -1,8 +1,10 @@
-import {ApolloClient, InMemoryCache} from '@apollo/client';
+import { ApolloClient, from, InMemoryCache } from '@apollo/client'
+import { authLink } from './links/authLink'
+import { gqlLink } from './links/gqlLink'
 
 export function createApollo() {
   return new ApolloClient({
-    uri: 'https://api.dev.realizeme.io/v1/graphql',
     cache: new InMemoryCache(),
-  });
+    link: from([authLink, gqlLink]),
+  })
 }

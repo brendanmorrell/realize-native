@@ -68,3 +68,5 @@ app/auth0-configuration.js
 
 # env
 *.env*
+
+generated/
